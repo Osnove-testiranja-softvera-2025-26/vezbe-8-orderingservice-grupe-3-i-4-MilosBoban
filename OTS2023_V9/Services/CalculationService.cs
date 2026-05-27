@@ -10,6 +10,17 @@ namespace OTS2023_V9.Services
         private IOrderService orderService;
         private ICouponService couponService;
         private ILoggerService loggerService;
+
+        public CalculationService( 
+            IOrderService orderService,
+            ICouponService couponService,
+            ILoggerService loggerService)
+        {
+            this.orderService = orderService;
+            this.couponService = couponService;
+            this.loggerService = loggerService;
+        }
+
         public bool CheckCouponValidity(Guid orderId, Guid couponId)
         {
             Order order = orderService.GetOrderById(orderId);
